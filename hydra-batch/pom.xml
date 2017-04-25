@@ -10,16 +10,270 @@
   <name>hydra-batch</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+
+    <properties>
+      <java.version>1.7</java.version>
+      <maven.compiler.source>1.7</maven.compiler.source>
+      <maven.compiler.target>1.7</maven.compiler.target>
+      <java.encoding>UTF-8</java.encoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.build.timestamp.format>yyMM dd</maven.build.timestamp.format>
+      <org.springframework.version>4.1.1.RELEASE</org.springframework.version>
+      <org.mybatis.version>3.2.1</org.mybatis.version>
+      <org.mybatis.spring.version>1.2.0</org.mybatis.spring.version>
+      <dubbo.version>2.5.3</dubbo.version>
+      <commons.dbcp.version>1.4</commons.dbcp.version>
+      <slf4j.version>1.7.7</slf4j.version>
+      <kafka.version>0.8.1.1</kafka.version>
+      <logback.version>1.1.1</logback.version>
+      <bestpaycommon.version>1.0.1</bestpaycommon.version>
+      <oval.version>1.81</oval.version>
+      <lombok.version>1.16.4</lombok.version>
+      <autoconfig.plugin.version>1.2</autoconfig.plugin.version>
+      <junit.version>4.11</junit.version>
+      <ojdbc.version>11.2.0.2.0</ojdbc.version>
+      <spring-data-redis.version>1.4.0.RELEASE</spring-data-redis.version>
+      <redis.version>2.6.0</redis.version>
+      <cglib.version>2.2.2</cglib.version>
+      <guava.version>15.0</guava.version>
+      <commons.collections.version>3.2.1</commons.collections.version>
+      <cif.version>3.0.3</cif.version>
+      <tradecenter.version>1.0.2</tradecenter.version>
+      <httpclient.version>4.5.2</httpclient.version>
+      <paycenter.version>4.0.2</paycenter.version>
+      <agreement.version>1.1.0</agreement.version>
+      <productcenter.version>1.0.3</productcenter.version>
+      <servlet.version>2.3</servlet.version>
+      <merchant.version>1.4.6</merchant.version>
+      <curator.version>2.6.0</curator.version>
+      <paycenter.commons>3.0.4</paycenter.commons>
+      <aspectj.version>1.7.0</aspectj.version>
+      <easymock.version>3.2</easymock.version>
+      <authcenter.version>3.0.9</authcenter.version>
+      <common.version>1.2</common.version>
+      <quartz.version>2.2.1</quartz.version>
+      <gw.version>1.6.0</gw.version>
+      <account.version>3.1.6</account.version>
+      <limitcenter.version>1.0.1</limitcenter.version>
+      <dst.version>1.0.2</dst.version>
+      <fastjson.version>1.2.29</fastjson.version>
+    </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+      <!-- spring -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>${org.springframework.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>commons-logging</artifactId>
+                  <groupId>commons-logging</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${org.springframework.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>commons-logging</artifactId>
+                  <groupId>commons-logging</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${org.springframework.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>commons-logging</artifactId>
+                  <groupId>commons-logging</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>${org.springframework.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>commons-logging</artifactId>
+                  <groupId>commons-logging</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <!-- mybatis -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>${org.mybatis.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>${org.mybatis.spring.version}</version>
+      </dependency>
+
+      <!-- dbcp -->
+      <dependency>
+          <groupId>commons-dbcp</groupId>
+          <artifactId>commons-dbcp</artifactId>
+          <version>${commons.dbcp.version}</version>
+      </dependency>
+
+      <!-- fastjson -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>fastjson</artifactId>
+          <version>${fastjson.version}</version>
+      </dependency>
+
+      <!-- google-guava -->
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>${guava.version}</version>
+      </dependency>
+
+
+      <!-- slf4j -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>${logback.version}</version>
+      </dependency>
+
+
+      <!--  validate -->
+      <dependency>
+          <groupId>net.sf.oval</groupId>
+          <artifactId>oval</artifactId>
+          <version>${oval.version}</version>
+      </dependency>
+
+      <!--  lombok -->
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>${lombok.version}</version>
+      </dependency>
+
+      <!-- junit -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>${junit.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>${org.springframework.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+
+      <!-- cglib -->
+      <dependency>
+          <groupId>cglib</groupId>
+          <artifactId>cglib-nodep</artifactId>
+          <version>${cglib.version}</version>
+      </dependency>
+
+      <!-- redis -->
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-redis</artifactId>
+          <version>${spring-data-redis.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.slf4j</groupId>
+                  <artifactId>slf4j-log4j12</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>${redis.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>${httpclient.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>${servlet.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-recipes</artifactId>
+          <version>${curator.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-test</artifactId>
+          <version>${curator.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-x-discovery</artifactId>
+          <version>${curator.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjrt</artifactId>
+          <version>${aspectj.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjweaver</artifactId>
+          <version>${aspectj.version}</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>org.quartz-scheduler</groupId>
+          <artifactId>quartz</artifactId>
+          <version>${quartz.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.slf4j</groupId>
+                  <artifactId>slf4j-api</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
   </dependencies>
 </project>
